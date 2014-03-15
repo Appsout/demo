@@ -76,6 +76,6 @@
 	<icon src="icon/ios/retina_ipad.png" gap:platform="ios" width="144" height="144" />
 	<icon src="icon/ios/icon-152x152.png" gap:platform="ios" width="152" height="152" /-->
 
-    <icon src="icon.png" />
+    <icon src="ico.png" />
     <access origin="*" />
 </widget>
