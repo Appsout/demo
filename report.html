@@ -78,17 +78,9 @@
 
               else
               {
-          var dataStr='name='+ name + '&number=' +  number + '&mail=' + mail+ '&date=' +  date + '&place=' + place+ '&details=' +  details + '&product=' + product;
-    
-                    $.ajax({
-                    url  : baseurl + 'home/mail_send',
-                    data: dataStr,
-                    type : "POST",
-                    dataType: 'json',
-                    success : function(data){
+         
                        location.href="end.html";
-                    }
-                });
+                    
               
            }
         }
