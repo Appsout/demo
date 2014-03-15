@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Register</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+		<!-- jQueryMobileCSS - original without styling -->
+        <link rel="stylesheet" href="css/jquerymobile.css" />
+
+		<!-- nativeDroid core CSS -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+
+		<!-- nativeDroid: Light/Dark -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css"  id='jQMnDTheme' />
+
+		<!-- nativeDroid: Color Schemes -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+
+		<!-- jQuery / jQueryMobile Scripts -->
+		<script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.mobile-1.3.1.min.js"></script>
+        <script type="text/javascript">
+        function signup(){
+
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            var name = $('#u_name').val();
+            var pass = $('#u_pass').val();
+            var email = $('#u_mail').val();
+            var number = $('#u_num').val();
+            var gender = $('#gender').val();
+            var city = $('#u_city').val();
+           
+
+            if(name == "")
+              {
+                    $("#sign_error").html('<label>Enter name.</label>');
+                    $("#u_name").focus();
+              }
+              else if(pass == "")
+              {
+                    $("#sign_error").html('<label>Enter password.</label>');
+                    $("#u_pass").focus();
+              }
+              else if(email == "")
+              {
+                    $("#sign_error").html('<label>Enter mail ID.</label>');
+                    $("#u_mail").focus();
+              }
+              else if(reg.test(email) == false)
+              {
+                    $("#sign_error").html('<label>Enter a valid mail ID.</label>');
+                    $("#u_mail").focus();
+              }
+              else if(number == "")
+              {
+                    $("#sign_error").html('<label>Enter number.</label>');
+                    $("#u_num").focus();
+              }
+              else if(gender == "")
+              {
+                    $("#sign_error").html('<label>select gender.</label>');
+                    $("#gender").focus();
+              }
+              else if(city == "")
+              {
+                    $("#sign_error").html('<label>Enter city.</label>');
+                    $("#u_city").focus();
+              }
+
+              else
+              {
+          var dataStrin='name='+ name + '&password=' +  pass + '&mail=' + email+ '&number=' +  number + '&gender=' + gender+ '&city=' +  city ;
+    alert(dataStrin);
+                    /*$.ajax({
+                    url  : baseurl + 'home/mail_send',
+                    data: dataStr,
+                    type : "POST",
+                    dataType: 'json',
+                    success : function(data){
+                       location.href="index.html";
+                    }
+                });*/
+              
+           }
+        }
+
+
+        </script>
+
+
+    </head>
+    <body>
+        
+    <div data-role="page" data-theme='b'>
+        
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
+            <h1>Register</h1>
+        </div>
+        
+        <div data-role="content">   
+
+			    
+            <form>
+                <ul data-role="listview" data-inset="true">
+        
+                    <li data-role="fieldcontain">
+                        <label for="u_name">User name:</label>
+                        <input type="text" name="u_name" id="u_name" value="" data-clear-btn="true" placeholder="user name">
+                    </li>
+
+                    <li data-role="fieldcontain">
+                        <label for="u_pass">Password:</label>
+                        <input type="password" name="u_pass" id="u_pass" value="" data-clear-btn="true" placeholder="password">
+                    </li>
+
+                    <li data-role="fieldcontain">
+                        <label for="u_mail">E-mail:</label>
+                        <input type="email" name="u_mail" id="u_mail" value="" data-clear-btn="true" placeholder="mail id">
+                    </li>
+
+
+                    <li data-role="fieldcontain">
+                        <label for="u_num">Mobile number:</label>
+                        <input type="text" name="u_num" id="u_num" value="" data-clear-btn="true" placeholder="mobile number">
+                    </li>
+
+                    <li data-role="fieldcontain">
+                        <label for="gender" class="select">Gender:</label>
+                        <select name="gender" id="gender" data-native-menu="true">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </li>
+
+                    <li data-role="fieldcontain">
+                        <label for="u_city">City:</label>
+                        <input type="text" name="u_city" id="u_city" value="" data-clear-btn="true" placeholder="city">
+                    </li>
+                    
+                    
+                    <li>
+                        <fieldset class="ui-grid-a">
+                                <div class="ui-block-a"><a href="index.html" data-role="button" data-theme="b">Cancel</a></div>
+                                <div class="ui-block-b"><a href="#" data-role="button" data-theme="b" onclick="signup()">Sign up</a></div>
+                        </fieldset>
+                    </li>
+                    
+                    <li data-role="fieldcontain">
+                        <div data-role="none" id="sign_error"></div>
+                    </li>
+
+                </ul>
+            </form>
+	        
+        </div>
+
+    </div>
+    
+    </body>
+</html>
