@@ -39,56 +39,6 @@ $(document).bind('pageinit', function(event){
 
 /*signin*/
 
-function signIn(){
-	
-	var email=$('#email').val();
-	var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-	var password=$('#pwd').val();
-	
-	if(email==""){
-		$('#signRes').html('Enter your Mail ID');
-		$('#email').focus();
-		}
-	else if(reg.test(email) == false)
-      {
-            $("#signRes").html('Enter a valid Mail ID.');
-            $("#email").focus();
-      }
-	else if(password==""){
-		$('#signRes').html('Enter your Password');
-		$('#pwd').focus();
-		}
-		else{
-			
-			var dataString='email='+ email + '&password=' +  password;
-    		
-            $.ajax({
-            url  : 'http://appsout.twomini.com/android/home/login',
-            data: dataString,
-            type : "POST",
-            dataType: 'json',
-			error: function(error) 
-			{
-			//alert('Sorry. Bad internet connection.');
-			navigator.notification.alert("Sorry. Bad internet connection", null, 'Error', 'OK');
-			},
-            success : function(res){
-
-            	if(res==1){
-            			location.href='#home';
-            	}else{
-
-            		navigator.notification.alert("Invalid email and password", null, 'Login', 'OK');
-            		//alert("Invalid email and password");
-            	}
-				
-            }
-			
-			
-        });
-		
-			}
-	}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
