@@ -9,7 +9,11 @@
 *
 */
 
-
+.ui-page{
+	backface-visibility:hidden; 
+-webkit-backface-visibility:hidden;
+-moz-backface-visibility:hidden;
+}
 /* Swatches */
 /* A
 -----------------------------------------------------------------------------------------------------------*/
