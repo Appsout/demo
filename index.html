@@ -245,6 +245,38 @@ function signUp(){
               
            }
         }
+    function sendreport(){
+  
+      var dataString='uname=admin';
+        
+            $.ajax({
+            url  : 'http://appsout.twomini.com/android/home/sendreport',
+            data: dataString,
+            type : "POST",
+            dataType: 'json',
+      error: function(error) 
+      {
+      alert('Sorry. Bad internet connection.');
+      },
+            success : function(res){
+
+              if(res==1){
+                navigator.notification.alert('Report has been sent.', null, 'E-mail', 'OK');
+                //alert("Report has been sent.");
+                location.href="#home";
+              }else if (res==2) {
+
+                //alert("Mail Failed");
+                navigator.notification.alert('Mail Failed', null, 'E-mail', 'OK');
+              }else{
+                //alert("Please add today report");
+                navigator.notification.alert('Please add today report', null, 'Report', 'OK');
+                location.href="#home";
+              }
+
+                //navigator.notification.alert("Invalid email and password", null, 'Login', 'OK');
+        
+            }
 </script>
 </head>
 
@@ -342,7 +374,7 @@ function signUp(){
 </div><!-- home Page ends Here-->
 
 <!-- new report Page starts here -->
-<div data-role="page" id="newreport" data-prev="description">
+<div data-role="page" id="newreport">
 <div data-role="panel" id="loginDetails" data-theme="a" data-position="left" data-display="overlay">
     <div data-theme="g" data-role="header" class="header header2">
       <h3>D-Report</h3><img src="images/close1.png" alt="" class="close" data-rel="close">
@@ -541,7 +573,7 @@ function signUp(){
   </div>
   <br><br>
 <div data-role="content" >
-<div class="signupbox" > <a data-role="button" href="#" class="confirm" onClick=""></a>
+<div class="signupbox" > <a data-role="button" href="#" class="confirm" onClick="sendreport()"></a>
         <label></label>
       </div>
 </div>
