@@ -254,10 +254,10 @@ function signUp(){
             data: dataString,
             type : "POST",
             dataType: 'json',
-      error: function(error) 
-      {
-      alert('Sorry. Bad internet connection.');
-      },
+	      error: function(error) 
+	      {
+	      alert('Sorry. Bad internet connection.');
+	      },
             success : function(res){
 
               if(res==1){
@@ -273,10 +273,10 @@ function signUp(){
                 navigator.notification.alert('Please add today report', null, 'Report', 'OK');
                 location.href="#home";
               }
-
-                //navigator.notification.alert("Invalid email and password", null, 'Login', 'OK');
         
             }
+            });
+    }
 </script>
 </head>
 
